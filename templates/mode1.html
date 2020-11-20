@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/MDB-Free_4.19.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="../static/css/MDB-Free_4.19.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <h1>사용자 커스터마이징 만들기</h1>
+    <h3> 등록하기</h3>
+    <div class="mode_box">
+        o 인식할 이름 :
+        <input type="text" id="module_name" required>
+        <div>
+            o 거실 불 설정 :
+            <label><input type="radio" name="l_led" value="on" />켜기</label>
+            <label><input type="radio" name="l_led" value="off" />끄기</label>
+            <label><input type="radio" name="l_led" value="none" />변경없음</label>
+        </div>
+
+
+        <div>
+            o 내방 불 설정 :
+            <label><input type="radio" name="m_led" value="on" />켜기</label>
+            <label><input type="radio" name="m_led" value="off" />끄기</label>
+            <label><input type="radio" name="m_led" value="none" />변경없음</label>
+        </div>
+        <div>
+            o 주차장 불 설정 :
+            <label><input type="radio" name="g_led" value="on" />켜기</label>
+            <label><input type="radio" name="g_led" value="off" />끄기</label>
+            <label><input type="radio" name="g_led" value="none" />변경없음</label>
+        </div>
+        <div>
+            o 창문 설정 :
+            <label><input type="radio" name="window" value="on" />열기</label>
+            <label><input type="radio" name="window" value="off" />닫기</label>
+            <label><input type="radio" name="window" value="none" />변경없음</label>
+        </div>
+        <div>
+            o 차고문 설정 :
+            <label><input type="radio" name="g_window" value="on" />열기</label>
+            <label><input type="radio" name="g_window" value="off" />기</label>
+            <label><input type="radio" name="g_window" value="none" />변경없음</label>
+        </div>
+        <input type="submit" value="등록" onclick="customizing()" />
+        <input type="button" value="처음으로" onclick="location.href='/'" />
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <h3 id="rst_check">결과 : </h3>닫
+
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../static/css/MDB-Free_4.19.0/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../static/css/MDB-Free_4.19.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../static/css/MDB-Free_4.19.0/js/mdb.min.js"></script>
+    <script type="text/javascript" src="../static/js/functionss.js"></script>
+</body>
+
+
+
+</html>

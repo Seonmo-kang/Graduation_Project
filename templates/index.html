@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize-v1.0.0/materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="../static/css/materialize-v1.0.0/materialize/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function goPython() {
+            $.ajax({
+                url: "/mic",
+                context: document.body
+            }).done(function () {
+                alert(finished python script);
+            }
+        }
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-1">
+            <a href="#" class="brand-logo">&nbsp;&nbsp; 스마트 홈 IOT</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/mode_page">모드 설정</a></li>
+                <li><a href="badges.html"></a></li>
+                <li><a href="collapsible.html">만든이</a></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row caard">
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">거실조명</span>
+                    <p class="center-align">거실</p>
+                </div>
+                <div class="card-action white-text">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <!--<input type="checkbox" name="chkchked" value="1번 on" onclick="chkchked()">-->
+                            <input type="checkbox" id="led1" onChange="getCurSwitch('led1', '2');">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">주차장조명</span>
+                    <p class="center-align">주차장</p>
+                </div>
+                <div class="card-action white-text">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <!--<input type="checkbox" name="chkchked" value="1번 on" onclick="chkchked()">-->
+                            <input type="checkbox" id="led2" onChange="getCurSwitch('led2', '3');">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">방조명</span>
+                    <p class="center-align">방</p>
+                </div>
+                <div class="card-action">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <input type="checkbox" id="led3" onChange="getCurSwitch('led3', '1');">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row caard">
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">거실창문</span>
+                    <p class="center-align">창문</p>
+                </div>
+                <div class="card-action">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <input type="checkbox" id="window" onChange="getCurSwitch('window', '4');">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">차고</span>
+                    <p class="center-align">차고 문</p>
+                </div>
+                <div class="card-action">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <!--<input type="checkbox" name="chkchked" value="1번 on" onclick="chkchked()">-->
+                            <input type="checkbox" id="door" onChange="getCurSwitch('door', '5');">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title center-align">카메라</span>
+                    <p class="center-align">CCTV</p>
+                </div>
+                <div class="card-action">
+                    <!-- Switch -->
+                    <div class="switch center">
+                        <label>
+                            Off
+                            <input type="checkbox" id="videoBtn" onChange="videoControl();">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Switch
+    <div class="switch center" style="color: rgba(255, 255, 255, 0.603)">
+        카메라<br>
+        <label>
+            Off
+            <input type="checkbox" id="videoBtn" onChange="videoControl();">
+            <span class="lever"></span>
+            On
+        </label>
+    </div> -->
+    <img id="videoFrame" class="center" src="{{ url_for('video_feed') }}" style="display: none">
+
+
+
+    <div class="switch center">
+        <!--<input type="button" id="camera" onClick="goPython();">-->
+    </div>
+    <div>
+        <!--<input type="button" id="led1" value="불 끄기" onClick="window.open('http://192.168.0.112/LEDON')"> -->
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="../static/js/functionss.js"></script>
+</body>
+
+</html>
